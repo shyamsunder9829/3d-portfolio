@@ -51,12 +51,19 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Experience</h4>
-                <h5>Fresher</h5>
+                <h4>Frontend Developer (React.js) Intern</h4>
+                <h5>Welyft Pte. Ltd. — Singapore (Remote)</h5>
               </div>
-              
+              <h3>May 2026 – Aug 2026</h3>
             </div>
-            <p>Self-Directed Projects -MERN Stack Development Worked on multiple full-stack projects focusing on REST APIs, authentication, database design, and responsive UI development.</p>
+            <ul>
+              <li>Developed and maintained the company website (welyft.org) using React.js, contributing to frontend architecture, page development, and responsive UI implementation.</li>
+              
+              <li>Developed and maintained responsive web application; debugged frontend issues to improve reliability.</li>
+             
+              <li>Collaborated with the IT team on product and technology tasks, supporting end-to-end delivery of frontend features.</li>
+              <li>Completed the internship in good standing; certificate of completion available on request.</li>
+            </ul>
           </div>
         </div>
       </div>

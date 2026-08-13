@@ -55,7 +55,7 @@ const Navbar = () => {
                    <img src="img.webp" alt="profile img" className="object-cover" loading="lazy" />
                 </a>
                 <a
-                    href="https://www.linkedin.com/in/shyam-sunder-06a66536a/"
+                    href="https://www.linkedin.com/in/shyam-sunder9829"
                     className="navbar-connect"
                     data-cursor="disable"
                     target="_blank"

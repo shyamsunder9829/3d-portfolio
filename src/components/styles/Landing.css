@@ -7,11 +7,13 @@
 }
 
 .landing-container {
-  width: var(--cWidth);
+  width: 100%;
+  max-width: var(--cMaxWidth);
   margin: auto;
   height: 100%;
   position: relative;
-  max-width: var(--cMaxWidth);
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .landing-circle1 {
@@ -19,13 +21,13 @@
   left: 0%;
   z-index: 15;
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 220px;
+  height: 220px;
   background-color: #22d3ee;
   box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
   filter: blur(60px);
   border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
+  animation: loadingCircle 6s linear infinite;
 }
 
 .nav-fade {
@@ -91,23 +93,22 @@
 
 .character-rim {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 320px;
+  height: 320px;
   z-index: 1;
   background-color: #22d3ee;
-  transform: translate(-50%, 36%) scaleX(1.4);
+  transform: translate(-50%, 36%) scaleX(1.2);
   box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
-  filter: blur(50px);
+  filter: blur(40px);
   border-radius: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 100%) scale(1.4);
+  transform: translate(-50%, 100%) scale(1.2);
   opacity: 0;
 }
 
 .character-model {
-  height: 80%;
-  height: 80vh;
+  height: 70vh;
   position: absolute;
   max-width: 1920px;
   max-height: 1080px;
@@ -115,7 +116,7 @@
   width: 100%;
   left: 50%;
   z-index: 0;
-  bottom: 50px;
+  bottom: 30px;
   pointer-events: inherit;
 }
 
@@ -320,6 +321,11 @@ h2.landing-info-h2 {
   h2.landing-info-h2 {
     font-size: 55px;
   }
+}
+
+.landing-info,
+.landing-intro {
+  transition: transform 0.45s ease, opacity 0.45s ease;
 }
 
 @media screen and (min-width: 1025px) {
