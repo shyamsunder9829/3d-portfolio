@@ -24,9 +24,9 @@
 }
 
 .about-me p {
-  font-size: 33px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 24px;
   letter-spacing: 1px;
 }
 
@@ -43,6 +43,10 @@
   }
   .about-section {
     opacity: 1;
+  }
+  .about-me p {
+    font-size: 2rem;
+    line-height: 2.1rem;
   }
 }
 @media only screen and (min-width: 1025px) {
