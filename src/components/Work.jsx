@@ -5,6 +5,20 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
+    title: "Welyft",
+    category: "Logistics web application",
+    tools: "React.js, Tailwind CSS for - frontend",
+    image: "/images/welyft-home-b.svg",
+    link: "https://www.welyft.org/",
+  },
+  {
+    title: "Productr",
+    category: "Product management web application",
+    tools: "React.js, Node.js, Nodemailer, Express.js, MongoDB, Tailwind CSS",
+    image: "/images/Productr.png",
+    link: "https://productr-app.netlify.app/",
+  },
+  {
     title: "GlowSense-AI",
     category: "Beauty recommendation platform",
     tools: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS",

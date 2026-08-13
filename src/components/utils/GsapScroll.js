@@ -5,10 +5,14 @@ export function setCharTimeline(
   character,
   camera
 ) {
-  let intensity = 0;
-  setInterval(() => {
-    intensity = Math.random();
-  }, 200);
+  // Create a single global interval to update intensity to avoid multiple intervals
+  if (!window._charIntensityInterval) {
+    window._charIntensityInterval = setInterval(() => {
+      window._charIntensity = Math.random();
+    }, 200);
+  }
+  // intensity getter reads the shared global value
+  const getIntensity = () => window._charIntensity || 0;
   const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".landing-section",
@@ -53,7 +57,7 @@ export function setCharTimeline(
       object.material.opacity = 0;
       object.material.emissive.set("#B0F5EA");
       gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
-        emissiveIntensity: () => intensity * 8,
+        emissiveIntensity: () => getIntensity() * 8,
         duration: () => Math.random() * 0.6,
         delay: () => Math.random() * 0.1,
       });

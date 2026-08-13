@@ -92,43 +92,44 @@ const Loading = ({ percent }) => {
 export default Loading;
 
 export const setProgress = (setLoading) => {
+  // Smooth progress using requestAnimationFrame to avoid many timers
   let percent = 0;
+  let rafId = null;
+  let target = 50;
 
-  let interval = setInterval(() => {
-    if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
-      percent = percent + rand;
-      setLoading(percent);
-    } else {
-      clearInterval(interval);
-      interval = setInterval(() => {
-        percent = percent + Math.round(Math.random());
-        setLoading(percent);
-        if (percent > 91) {
-          clearInterval(interval);
-        }
-      }, 2000);
+  const step = () => {
+    setLoading(Math.round(percent));
+    if (percent < target) {
+      // ease toward target
+      percent += Math.max(0.2, (target - percent) * 0.08);
+      rafId = requestAnimationFrame(step);
     }
-  }, 100);
+  };
+
+  // start initial animation
+  if (!rafId) rafId = requestAnimationFrame(step);
 
   function clear() {
-    clearInterval(interval);
+    if (rafId) cancelAnimationFrame(rafId);
+    percent = 100;
     setLoading(100);
   }
 
   function loaded() {
     return new Promise((resolve) => {
-      clearInterval(interval);
-      interval = setInterval(() => {
+      target = 100;
+      const finish = () => {
+        setLoading(Math.round(percent));
         if (percent < 100) {
-          percent++;
-          setLoading(percent);
+          percent += Math.max(0.5, (100 - percent) * 0.06);
+          rafId = requestAnimationFrame(finish);
         } else {
           resolve(percent);
-          clearInterval(interval);
         }
-      }, 2);
+      };
+      finish();
     });
   }
+
   return { loaded, percent, clear };
 };

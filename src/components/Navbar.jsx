@@ -52,7 +52,7 @@ const Navbar = () => {
         <>
             <div className="header">
                 <a href="/#" className="navbar-title" data-cursor="disable">
-                   <img src="img.webp" alt="profile img" className="object-cover" />
+                   <img src="img.webp" alt="profile img" className="object-cover" loading="lazy" />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/shyam-sunder-06a66536a/"

@@ -15,12 +15,11 @@ export default function handleResize(
   renderer.setSize(width, height);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  const workTrigger = ScrollTrigger.getById("work");
-  ScrollTrigger.getAll().forEach((trigger) => {
-    if (trigger != workTrigger) {
-      trigger.kill();
-    }
-  });
-  setCharTimeline(character, camera);
-  setAllTimeline();
+  // avoid recreating timelines on every resize which can leak intervals/handlers
+  // instead refresh ScrollTrigger to update pinned/positioned elements
+  try {
+    ScrollTrigger.refresh();
+  } catch (e) {
+    // ignore if ScrollTrigger not initialized yet
+  }
 }
